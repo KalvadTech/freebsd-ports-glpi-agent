@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# PROVIDE: glpi_agent
+# REQUIRE: DAEMON
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name=glpi_agent
+rcvar=${name}_enable
+
+load_rc_config $name
+
+: ${glpi_agent_enable="NO"}
+: ${glpi_agent_user="root"}
+: ${glpi_agent_pidfile="/var/run/${name}.pid"}
+
+command="%%PREFIX%%/bin/glpi-agent"
+command_args="-d --pidfile ${glpi_agent_pidfile}"
+pidfile="${glpi_agent_pidfile}"
+
+glpi_agent_prestart()
+{
+    mkdir -p /var/glpi-agent
+	chown -R $glpi_agent_user /var/glpi-agent
+	touch $pidfile
+	chown $glpi_agent_user $pidfile
+}
+
+glpi_agent_poststop()
+{
+    rm -f $pidfile
+}
+
+run_rc_command $*

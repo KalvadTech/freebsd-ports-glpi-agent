@@ -1,0 +1,8 @@
+The GLPI Agent is a generic management agent. It can perform a certain number
+of tasks, according to its own execution plan, or on behalf of a GLPI server
+acting as a control point.
+
+This agent is based on a fork of FusionInventory agent and so works mainly like
+FusionInventory agent. It introduces new features and a new protocol to
+communicate directly with a GLPI server and its native inventory feature.
+Anyway it also keeps the compatibility with FusionInventory for GLPI plugin.
