@@ -1,5 +1,5 @@
 PORTNAME=	glpi-agent
-DISTVERSION=	1.7.2
+DISTVERSION=	1.21
 CATEGORIES=	net-mgmt
 
 MAINTAINER=	mazhe@alkumuna.eu
@@ -18,7 +18,8 @@ RUN_DEPENDS=	p5-File-Which>=0:sysutils/p5-File-Which \
 		p5-XML-LibXML>=0:textproc/p5-XML-LibXML \
 		p5-Cpanel-JSON-XS>=0:converters/p5-Cpanel-JSON-XS \
 		p5-DateTime>=0:devel/p5-DateTime \
-		p5-Data-UUID>=0:devel/p5-Data-UUID
+		p5-Data-UUID>=0:devel/p5-Data-UUID \
+		p5-YAML-Tiny>=0:textproc/p5-YAML-Tiny
 
 USES=		perl5
 USE_PERL5=	configure
@@ -56,7 +57,8 @@ NETDISCOVERY_RUN_DEPENDS=	p5-Thread-Queue>=0:devel/p5-Thread-Queue \
 				p5-Net-SNMP>=0:net-mgmt/p5-Net-SNMP
 NETINVENTORY_RUN_DEPENDS=	p5-Thread-Queue>=0:devel/p5-Thread-Queue \
 				p5-Net-SNMP>=0:net-mgmt/p5-Net-SNMP
-WAKEONLAN_RUN_DEPENDS=	p5-Net-Packet>=0:net/p5-Net-Packet
+REMOTEINVENTORY_RUN_DEPENDS=	p5-Net-SSH2>=0:net/p5-Net-SSH2
+WAKEONLAN_RUN_DEPENDS=	p5-Net-Write>=0:net/p5-Net-Write
 
 .include <bsd.port.options.mk>
 
